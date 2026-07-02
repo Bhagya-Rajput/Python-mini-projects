@@ -28,10 +28,10 @@ while True:
           print(f"{i}.{task}")
          try:
            n =int(input("enter the number of above task to remove:"))
-           if (n <= len(Task)+1):
-            Task.pop(n-1)
+           if 1 <= n <= len(Task):
+            Task.pop(n - 1)
            else:
-             print("Invalid Task from menu")
+            print("Invalid task number")
          except ValueError as e:
             print("you have enterd some wrong input",e)
        case 4:
