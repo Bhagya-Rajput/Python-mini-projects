@@ -20,18 +20,15 @@ while True:
          print(f"task is added to file")
 
        case 2: ## for view of all task
-         if not Task:
-           print("no task in file")
          for i,task in enumerate(Task,start =1):
-  
+          print(f"{i}.{task}")
+
        case 3 :## for removing a existing task
          for i,task in enumerate(Task,start =1):
           print(f"{i}.{task}")
          try:
            n =int(input("enter the number of above task to remove:"))
-           if not Task:
-            print("no task to remove")
-           elif (n <= len(Task)+1):
+           if (n <= len(Task)+1):
             Task.pop(n-1)
            else:
              print("Invalid Task from menu")
