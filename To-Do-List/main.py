@@ -10,9 +10,14 @@ while True:
           5. Exit  '''))
      try:
       with open("Text.json","r") as file:
-       Task = json.load(file)
-      
-     except( FileNotFoundError, json.JSONDecodeError):
+       Task = [
+         {
+           "Task" : line.strip() ,
+           "status" : false
+         }
+         for line in file
+       ]
+     except FileNotFoundError:
        with open("Text.json","w") as file:
         Task = []
     
