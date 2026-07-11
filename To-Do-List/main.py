@@ -15,8 +15,7 @@ while True:
      except( FileNotFoundError, json.JSONDecodeError):
        with open("Text.json","w") as file:
         Task = []
-     print(type(Task)) 
-     print(Task)
+    
      match(choice):
        case 1 : ## for adding a task
          task = input("Enter the task you want to add: ")
@@ -28,8 +27,10 @@ while True:
 
        case 2: ## for view of all task
          for i,task in enumerate(Task,start =1):
-          print(f"{i}.{task}")
-
+          if task.get("status") == False:
+           print(f"{i}. [] {task.get("task")}")
+          else:
+           print(f"{i}. [x] {task.get("task")}")
        case 3 :## for removing a existing task
          for i,task in enumerate(Task,start =1):
           print(f"{i}.{task}")
@@ -41,7 +42,9 @@ while True:
             print("Invalid task number")
          except ValueError as e:
             print("you have enterd some wrong input",e)
-       case 4:
+       #case 4 :# for task status
+         
+       case 5:# for exiting program
          print("YOU were exiting from program")
          break
        case _:
