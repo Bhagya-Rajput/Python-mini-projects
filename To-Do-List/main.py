@@ -28,9 +28,9 @@ while True:
        case 2: ## for view of all task
          for i,task in enumerate(Task,start =1):
           if task.get("status") == False:
-           print(f"{i}. [] {task.get("task")}")
+           print(f"{i}. [] {task.get('task')}")
           else:
-           print(f"{i}. [x] {task.get("task")}")
+           print(f"{i}. [x] {task.get('task')}")
        case 3 :## for removing a existing task
          for i,task in enumerate(Task,start =1):
           print(f"{i}.{task}")
@@ -42,8 +42,37 @@ while True:
             print("Invalid task number")
          except ValueError as e:
             print("you have enterd some wrong input",e)
-       #case 4 :# for task status
-         
+       case 4 :# for task status
+        while True :
+          for i,task in enumerate(Task,start =1):
+           if task.get("status") == False:
+            print(f"{i}. [] {task.get('task')}")
+           else:
+            print(f"{i}. [x] {task.get('task')}")
+          try:
+            n =int(input("enter the number of above task to modify :"))
+            edit = input("enter the status you want to do{complete/left}...").lower()
+            if 1 <= n <= len(Task):
+              task = Task[n-1]
+              if edit == "complete":
+               task["status"] = True
+              elif edit == "left":
+               task["status"] = False
+              else : 
+                print("you enteref something wrong")
+            else:
+              print("Invalid task number")
+          except ValueError as e:
+              print("you have enterd some wrong input",e)
+          for i,task in enumerate(Task,start =1):
+           if task.get("status"):
+            print(f"{i}. [x] {task.get('task')}")
+           else:
+            print(f"{i}. [] {task.get('task')}")
+          exit  = input("you want to exit or continue changing{exit =1/continue = 2}")
+          if exit == "1":
+            break
+  
        case 5:# for exiting program
          print("YOU were exiting from program")
          break
